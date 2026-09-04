@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a150e"/>
+      <stop offset="50%" stop-color="#7b241c"/>
+      <stop offset="100%" stop-color="#e67e22"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg3)"/>
+  
+  <circle cx="400" cy="270" r="150" fill="#2c1d11" stroke="#f39c12" stroke-width="6"/>
+  <circle cx="400" cy="270" r="135" fill="#b94600"/>
+  <circle cx="400" cy="270" r="80" fill="#d35400"/>
+  
+  <text x="400" y="500" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">HERITAGE BLENDED MASALAS</text>
+  <text x="400" y="540" text-anchor="middle" fill="#f8c471" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Garam Masala & Biryani Spice Formulations</text>
+</svg>

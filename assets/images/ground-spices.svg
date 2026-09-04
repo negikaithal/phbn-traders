@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2c221e"/>
+      <stop offset="50%" stop-color="#4a2c11"/>
+      <stop offset="100%" stop-color="#c0392b"/>
+    </linearGradient>
+    <radialGradient id="turmeric" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f39c12"/>
+      <stop offset="70%" stop-color="#d35400"/>
+      <stop offset="100%" stop-color="#b94600"/>
+    </radialGradient>
+    <radialGradient id="chilli" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e74c3c"/>
+      <stop offset="70%" stop-color="#c0392b"/>
+      <stop offset="100%" stop-color="#922b21"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Wooden Table Texture / Bowls -->
+  <circle cx="280" cy="300" r="160" fill="#1e1512" stroke="#d35400" stroke-width="4"/>
+  <circle cx="280" cy="300" r="145" fill="url(#chilli)"/>
+  
+  <circle cx="540" cy="320" r="140" fill="#1e1512" stroke="#f39c12" stroke-width="4"/>
+  <circle cx="540" cy="320" r="125" fill="url(#turmeric)"/>
+  
+  <!-- Text Label -->
+  <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">PURE GROUND SPICES</text>
+  <text x="400" y="555" text-anchor="middle" fill="#f39c12" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cold-Ground Chilli, Turmeric & Cumin</text>
+</svg>

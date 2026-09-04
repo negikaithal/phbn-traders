@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b2b1a"/>
+      <stop offset="50%" stop-color="#145a32"/>
+      <stop offset="100%" stop-color="#27ae60"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg5)"/>
+  
+  <path d="M400 160 C 300 240, 280 360, 400 360 C 520 360, 500 240, 400 160 Z" fill="#27ae60" stroke="#abebc6" stroke-width="4"/>
+  <path d="M400 160 L 400 360" stroke="#abebc6" stroke-width="3"/>
+  <path d="M400 220 L 350 260" stroke="#abebc6" stroke-width="3"/>
+  <path d="M400 260 L 440 290" stroke="#abebc6" stroke-width="3"/>
+
+  <text x="400" y="500" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">ORGANIC &amp; WELLNESS SPICES</text>
+  <text x="400" y="540" text-anchor="middle" fill="#abebc6" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Immunity Turmeric, Dry Ginger &amp; Herbal Botanicals</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1512"/>
+      <stop offset="50%" stop-color="#3e2723"/>
+      <stop offset="100%" stop-color="#5d4037"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  
+  <!-- Cinnamon Stick & Cardamom Pods & Star Anise Art -->
+  <g transform="translate(400, 240)">
+    <!-- Star Anise -->
+    <path d="M0,-80 L18,-25 L75,-25 L28,10 L45,65 L0,30 L-45,65 L-28,10 L-75,-25 L-18,-25 Z" fill="#8d6e63" stroke="#d7ccc8" stroke-width="3"/>
+    <circle cx="0" cy="0" r="14" fill="#4e342e"/>
+  </g>
+  
+  <!-- Cardamom Pods -->
+  <ellipse cx="220" cy="300" rx="35" ry="55" fill="#2e7d32" stroke="#81c784" stroke-width="3" transform="rotate(-25 220 300)"/>
+  <ellipse cx="580" cy="280" rx="35" ry="55" fill="#388e3c" stroke="#a5d6a7" stroke-width="3" transform="rotate(30 580 280)"/>
+
+  <!-- Text -->
+  <text x="400" y="500" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">AUTHENTIC WHOLE SPICES</text>
+  <text x="400" y="540" text-anchor="middle" fill="#81c784" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cardamom, Cloves, Star Anise & Cinnamon</text>
+</svg>

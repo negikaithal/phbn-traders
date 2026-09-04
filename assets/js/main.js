@@ -28,6 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
             displayPrice.textContent = '₹' + newPrice;
         });
     }
+
+    // Image Error Fallback to Authentic Spice Vector Asset
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            if (!this.getAttribute('data-fallback-applied')) {
+                this.setAttribute('data-fallback-applied', 'true');
+                this.src = 'assets/images/ground-spices.svg';
+            }
+        });
+    });
 });
 
 // Toast Helper
