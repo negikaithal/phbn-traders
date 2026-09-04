@@ -4,7 +4,7 @@ require_once __DIR__ . '/functions.php';
 $cartCount = getCartCount();
 
 $metaTitle = $pageTitle ?? 'PHBN Traders | Pure, Aromatic & Wholesale Standard Spices';
-$metaDesc = $pageDescription ?? 'PHBN Traders provides 100% pure single-origin whole spices, cold-ground masalas, and luxury Kashmiri saffron. Direct estate sourced, lab tested, and vacuum packed.';
+$metaDesc = $pageDescription ?? 'PHBN Traders provides pure single-origin whole spices, cold-ground masalas, and luxury Kashmiri saffron. Direct estate sourced, lab tested, and vacuum packed.';
 $metaImage = $pageImage ?? url('assets/images/spice-banner.jpg');
 $metaCanonical = $pageCanonical ?? ( (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" );
 ?>
@@ -62,7 +62,7 @@ $metaCanonical = $pageCanonical ?? ( (isset($_SERVER['HTTPS']) && $_SERVER['HTTP
     <!-- Top Announcement Bar -->
     <div class="bg-spice-dark text-amber-100 text-xs py-2 px-4 text-center flex justify-between items-center px-6 md:px-12 border-b border-amber-900/40">
         <div class="hidden md:flex items-center gap-4">
-            <span><i class="fa-solid fa-seedling text-emerald-400 mr-1"></i> 100% Sun-Dried & Lab Tested Purity</span>
+            <span><i class="fa-solid fa-seedling text-emerald-400 mr-1"></i> Sun-Dried & Lab Tested Purity</span>
             <span><i class="fa-solid fa-truck-fast text-amber-400 mr-1"></i> Express Shipping Across India</span>
         </div>
         <div class="w-full md:w-auto text-center md:text-right font-medium">

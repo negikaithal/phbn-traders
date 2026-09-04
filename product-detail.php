@@ -96,7 +96,7 @@ $relatedProducts = $relStmt->fetchAll();
                     <img src="<?= sanitize($product['image']) ?>" class="w-full h-full object-cover">
                 </div>
                 <div class="border border-spice-border rounded-xl overflow-hidden h-24 bg-gray-50 flex items-center justify-center text-xs text-gray-500 font-medium">
-                    <i class="fa-solid fa-leaf text-emerald-500 text-lg mr-1"></i> 100% Pure
+                    <i class="fa-solid fa-leaf text-emerald-500 text-lg mr-1"></i> Guaranteed Pure
                 </div>
                 <div class="border border-spice-border rounded-xl overflow-hidden h-24 bg-gray-50 flex items-center justify-center text-xs text-gray-500 font-medium">
                     <i class="fa-solid fa-box text-amber-500 text-lg mr-1"></i> Vacuum Packaged

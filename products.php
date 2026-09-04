@@ -62,7 +62,7 @@ $products = $stmt->fetchAll();
             <h1 class="text-3xl font-extrabold tracking-tight">
                 <?= !empty($selectedCatSlug) ? ucwords(str_replace('-', ' ', $selectedCatSlug)) : 'Spice Pantry Catalog' ?>
             </h1>
-            <p class="text-xs text-amber-200/80 mt-1">Explore our range of 100% pure single-origin whole spices, ground masalas, & luxury saffron.</p>
+            <p class="text-xs text-amber-200/80 mt-1">Explore our range of pure single-origin whole spices, ground masalas, & luxury saffron.</p>
         </div>
         <div class="text-xs text-amber-300 font-medium">
             Showing <span class="font-bold text-white"><?= count($products) ?></span> Spices Available

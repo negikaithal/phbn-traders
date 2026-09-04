@@ -138,7 +138,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                     </a>
 
                     <div class="pt-3 border-t border-gray-100 text-[11px] text-gray-500 space-y-1">
-                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-shield text-spice-gold"></i> 100% Safe & Secure Checkout</div>
+                        <div class="flex items-center gap-1.5"><i class="fa-solid fa-shield text-spice-gold"></i> Safe & Secure Checkout</div>
                         <div class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-spice-gold"></i> Easy Purity Guarantee Return</div>
                     </div>
                 </div>

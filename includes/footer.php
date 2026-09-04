@@ -15,7 +15,7 @@
                         <span class="text-2xl font-bold tracking-tight text-white uppercase">PHBN <span class="text-spice-gold">Traders</span></span>
                     </a>
                     <p class="text-xs text-amber-200/70 leading-relaxed max-w-sm">
-                        PHBN Traders is a premier spice house specializing in 100% pure, ethically sourced single-origin spices, hand-picked whole botanicals, and artisanal blended masalas direct from traditional spice gardens.
+                        PHBN Traders is a premier spice house specializing in pure, ethically sourced single-origin spices, hand-picked whole botanicals, and artisanal blended masalas direct from traditional spice gardens.
                     </p>
                     <div class="flex items-center gap-4 pt-2">
                         <a href="#" class="w-9 h-9 rounded-full bg-amber-900/50 hover:bg-spice-gold text-white flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>

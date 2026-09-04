@@ -1,7 +1,7 @@
 <?php
 // index.php - Home Page
 $pageTitle = "PHBN Traders | Pure, Aromatic & Wholesale Standard Spices";
-$pageDescription = "Discover PHBN Traders range of 100% pure single-origin whole spices, cold-ground masalas, and luxury Kashmiri saffron. Sourced direct from spice estates.";
+$pageDescription = "Discover PHBN Traders range of pure single-origin whole spices, cold-ground masalas, and luxury Kashmiri saffron. Sourced direct from spice estates.";
 require_once __DIR__ . '/includes/header.php';
 
 $pdo = getDBConnection();
@@ -26,7 +26,7 @@ $featuredProducts = $featStmt->fetchAll();
                 Uncompromising <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Aroma & Purity</span> Direct From Source
             </h1>
             <p class="text-base sm:text-lg text-amber-100/80 font-light leading-relaxed">
-                Elevate your culinary creations with PHBN Traders’ handpicked whole spices, vibrant cold-ground masalas, and luxury Kashmiri saffron. 100% natural, lab-tested, and vacuum-sealed for peak essential oil freshness.
+                Elevate your culinary creations with PHBN Traders’ handpicked whole spices, vibrant cold-ground masalas, and luxury Kashmiri saffron. All natural, lab-tested, and vacuum-sealed for peak essential oil freshness.
             </p>
             <div class="flex flex-wrap gap-4 pt-4">
                 <a href="<?= url('products') ?>" class="btn-spice-primary text-sm flex items-center gap-2 shadow-lg">
@@ -40,7 +40,7 @@ $featuredProducts = $featStmt->fetchAll();
             <!-- Quick Metrics -->
             <div class="grid grid-cols-3 gap-6 pt-8 border-t border-amber-900/60 max-w-lg">
                 <div>
-                    <div class="text-2xl font-bold text-amber-300">100%</div>
+                    <div class="text-2xl font-bold text-amber-300">Pure</div>
                     <div class="text-xs text-amber-200/70">Pure & Adulterant Free</div>
                 </div>
                 <div>
@@ -75,7 +75,7 @@ $featuredProducts = $featStmt->fetchAll();
                     <i class="fa-solid fa-vial"></i>
                 </div>
                 <div>
-                    <h4 class="font-bold text-sm text-spice-dark">100% Lab Tested Purity</h4>
+                    <h4 class="font-bold text-sm text-spice-dark">Lab Tested Purity</h4>
                     <p class="text-xs text-gray-500">Zero synthetic colors or lead</p>
                 </div>
             </div>
