@@ -1,0 +1,5 @@
+# .gitignore for PHBN Traders
+data/database.sqlite
+.DS_Store
+Thumbs.db
+*.log
