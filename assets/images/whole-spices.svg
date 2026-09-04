@@ -21,5 +21,5 @@
 
   <!-- Text -->
   <text x="400" y="500" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">AUTHENTIC WHOLE SPICES</text>
-  <text x="400" y="540" text-anchor="middle" fill="#81c784" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cardamom, Cloves, Star Anise & Cinnamon</text>
+  <text x="400" y="540" text-anchor="middle" fill="#81c784" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cardamom, Cloves, Star Anise &amp; Cinnamon</text>
 </svg>

@@ -13,5 +13,5 @@
   <circle cx="400" cy="270" r="80" fill="#d35400"/>
   
   <text x="400" y="500" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">HERITAGE BLENDED MASALAS</text>
-  <text x="400" y="540" text-anchor="middle" fill="#f8c471" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Garam Masala & Biryani Spice Formulations</text>
+  <text x="400" y="540" text-anchor="middle" fill="#f8c471" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Garam Masala &amp; Biryani Spice Formulations</text>
 </svg>

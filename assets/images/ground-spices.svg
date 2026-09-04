@@ -27,5 +27,5 @@
   
   <!-- Text Label -->
   <text x="400" y="520" text-anchor="middle" fill="#ffffff" font-family="'Outfit', sans-serif" font-weight="800" font-size="38" letter-spacing="2">PURE GROUND SPICES</text>
-  <text x="400" y="555" text-anchor="middle" fill="#f39c12" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cold-Ground Chilli, Turmeric & Cumin</text>
+  <text x="400" y="555" text-anchor="middle" fill="#f39c12" font-family="'Outfit', sans-serif" font-weight="600" font-size="20">Cold-Ground Chilli, Turmeric &amp; Cumin</text>
 </svg>
