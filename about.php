@@ -1,5 +1,7 @@
 <?php
 // about.php - Sourcing Story & Quality Assurance
+$pageTitle = "Our Sourcing Story & Purity Standards - PHBN Traders";
+$pageDescription = "Learn about PHBN Traders direct estate sourcing, non-GMO farming partnerships, and cold-grinding purity standards.";
 require_once __DIR__ . '/includes/header.php';
 ?>
 

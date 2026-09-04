@@ -1,10 +1,12 @@
 <?php
 // checkout.php - Customer Order & Checkout
+$pageTitle = "Checkout Order - PHBN Traders";
+$pageDescription = "Complete your shipping details to place your spice order.";
 require_once __DIR__ . '/includes/header.php';
 
 $cart = getCart();
 if (empty($cart)) {
-    header('Location: cart.php');
+    header('Location: ' . url('cart'));
     exit;
 }
 
@@ -64,8 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Clear cart
             clearCart();
 
-            // Redirect to success page
-            header("Location: order-success.php?id=" . $orderId);
+            // Redirect to success page with clean route
+            header("Location: " . url("order-success/" . $orderId));
             exit;
 
         } catch (PDOException $e) {

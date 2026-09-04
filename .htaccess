@@ -1,0 +1,25 @@
+# Apache Rewrite Rules for PHBN Traders SEO Friendly URLs
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# Stop rewrite if requested physical file or directory exists
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# SEO Clean Route Rules
+RewriteRule ^$ index.php [L,QSA]
+RewriteRule ^home/?$ index.php [L,QSA]
+RewriteRule ^products/?$ products.php [L,QSA]
+RewriteRule ^category/([a-zA-Z0-9_-]+)/?$ products.php?cat=$1 [L,QSA]
+RewriteRule ^spice/([a-zA-Z0-9_-]+)/?$ product-detail.php?slug=$1 [L,QSA]
+RewriteRule ^product/([a-zA-Z0-9_-]+)/?$ product-detail.php?slug=$1 [L,QSA]
+RewriteRule ^cart/?$ cart.php [L,QSA]
+RewriteRule ^checkout/?$ checkout.php [L,QSA]
+RewriteRule ^order-success/([0-9]+)/?$ order-success.php?id=$1 [L,QSA]
+RewriteRule ^wholesale/?$ wholesale.php [L,QSA]
+RewriteRule ^spice-masterclass/?$ recipes.php [L,QSA]
+RewriteRule ^recipes/?$ recipes.php [L,QSA]
+RewriteRule ^about-us/?$ about.php [L,QSA]
+RewriteRule ^contact-us/?$ contact.php [L,QSA]
+</IfModule>

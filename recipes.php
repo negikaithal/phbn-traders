@@ -1,5 +1,7 @@
 <?php
 // recipes.php - Spice Masterclass & Pairing Guide
+$pageTitle = "Spice Masterclass & Culinary Pairing Guide - PHBN Traders";
+$pageDescription = "Learn the science of tempering whole spices, slow stone cold grinding, and spice heat matrix pairings.";
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -30,7 +32,7 @@ require_once __DIR__ . '/includes/header.php';
                 <strong class="block font-bold">Pro Tip for Whole Spices:</strong>
                 <span>Always drop heavy spices (cinnamon sticks, black cardamom) first, followed by medium (cloves, star anise), and finish with delicate seeds (cumin, mustard) so they never burn.</span>
             </div>
-            <a href="products.php?cat=whole-spices" class="btn-spice-primary text-xs inline-block">Shop Whole Spices for Tempering</a>
+            <a href="<?= url('category/whole-spices') ?>" class="btn-spice-primary text-xs inline-block">Shop Whole Spices for Tempering</a>
         </div>
     </div>
 
@@ -46,7 +48,7 @@ require_once __DIR__ . '/includes/header.php';
                 <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Roast whole spices on a heavy iron skillet for 3 minutes on low flame.</li>
                 <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Cool completely before pulverizing to avoid moisture condensation.</li>
             </ul>
-            <a href="products.php?cat=blended-masalas" class="btn-spice-secondary text-xs inline-block">Explore Our Artisanal Masala Blends</a>
+            <a href="<?= url('category/blended-masalas') ?>" class="btn-spice-secondary text-xs inline-block">Explore Our Artisanal Masala Blends</a>
         </div>
         <div class="rounded-2xl overflow-hidden h-72 lg:h-96 order-1 lg:order-2">
             <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=800&auto=format&fit=crop&q=80" class="w-full h-full object-cover">

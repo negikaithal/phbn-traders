@@ -1,5 +1,7 @@
 <?php
 // cart.php - Shopping Cart Overview
+$pageTitle = "Shopping Cart - PHBN Traders";
+$pageDescription = "View items in your spice shopping cart and proceed to checkout.";
 require_once __DIR__ . '/includes/header.php';
 
 $cart = getCart();
@@ -23,7 +25,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
             </div>
             <h2 class="text-xl font-bold text-spice-dark">Your Cart is Currently Empty</h2>
             <p class="text-xs text-gray-500">Discover our sun-dried whole spices and authentic ground blends.</p>
-            <a href="products.php" class="btn-spice-primary text-xs inline-block">Explore Pantry Catalog</a>
+            <a href="<?= url('products') ?>" class="btn-spice-primary text-xs inline-block">Explore Pantry Catalog</a>
         </div>
     <?php else: ?>
         
@@ -37,7 +39,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                     <span class="text-emerald-700 font-bold"><i class="fa-solid fa-circle-check"></i> Congratulations! You qualify for FREE Express Shipping!</span>
                 <?php endif; ?>
             </div>
-            <a href="products.php" class="text-spice-red font-bold underline">Add More Spices</a>
+            <a href="<?= url('products') ?>" class="text-spice-red font-bold underline">Add More Spices</a>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -65,9 +67,9 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                                     <div class="flex items-center gap-3">
                                         <img src="<?= sanitize($item['image']) ?>" class="w-12 h-12 object-cover rounded-xl border border-gray-200 shrink-0">
                                         <div>
-                                            <a href="product-detail.php?id=<?= $item['id'] ?>" class="font-bold text-spice-dark hover:text-spice-red line-clamp-1">
+                                            <span class="font-bold text-spice-dark block line-clamp-1">
                                                 <?= sanitize($item['name']) ?>
-                                            </a>
+                                            </span>
                                         </div>
                                     </div>
                                 </td>
@@ -78,7 +80,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                                     <?= formatCurrency($item['price']) ?>
                                 </td>
                                 <td class="p-4 text-center">
-                                    <form action="cart-action.php" method="POST" class="inline-flex items-center gap-1">
+                                    <form action="<?= url('cart-action.php') ?>" method="POST" class="inline-flex items-center gap-1">
                                         <input type="hidden" name="action" value="update">
                                         <input type="hidden" name="cart_key" value="<?= sanitize($item['key']) ?>">
                                         <input type="number" name="quantity" value="<?= $item['quantity'] ?>" min="1" max="50" onchange="this.form.submit()" class="w-14 bg-gray-50 border border-gray-300 rounded-lg py-1 px-2 text-center text-xs font-bold focus:outline-none">
@@ -88,7 +90,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                                     <?= formatCurrency($subtotal) ?>
                                 </td>
                                 <td class="p-4 text-center">
-                                    <a href="cart-action.php?action=remove&key=<?= urlencode($item['key']) ?>" class="text-gray-400 hover:text-spice-red transition-colors p-1" title="Remove item">
+                                    <a href="<?= url('cart-action.php?action=remove&key=' . urlencode($item['key'])) ?>" class="text-gray-400 hover:text-spice-red transition-colors p-1" title="Remove item">
                                         <i class="fa-solid fa-trash-can text-sm"></i>
                                     </a>
                                 </td>
@@ -99,10 +101,10 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                 </div>
 
                 <div class="flex justify-between items-center pt-2">
-                    <a href="products.php" class="text-xs font-bold text-spice-dark hover:text-spice-red flex items-center gap-1">
+                    <a href="<?= url('products') ?>" class="text-xs font-bold text-spice-dark hover:text-spice-red flex items-center gap-1">
                         <i class="fa-solid fa-arrow-left"></i> Continue Shopping
                     </a>
-                    <a href="cart-action.php?action=clear" class="text-xs text-red-600 hover:underline">Clear Entire Cart</a>
+                    <a href="<?= url('cart-action.php?action=clear') ?>" class="text-xs text-red-600 hover:underline">Clear Entire Cart</a>
                 </div>
             </div>
 
@@ -131,7 +133,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                         </span>
                     </div>
 
-                    <a href="checkout.php" class="btn-spice-primary w-full text-center block text-xs shadow-md">
+                    <a href="<?= url('checkout') ?>" class="btn-spice-primary w-full text-center block text-xs shadow-md">
                         Proceed to Checkout <i class="fa-solid fa-arrow-right ml-1"></i>
                     </a>
 

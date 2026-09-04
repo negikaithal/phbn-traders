@@ -1,5 +1,7 @@
 <?php
 // contact.php - Contact Support & FAQ
+$pageTitle = "Contact Customer Support & Trade Desk - PHBN Traders";
+$pageDescription = "Get in touch with PHBN Traders customer service or wholesale trade desk.";
 require_once __DIR__ . '/includes/header.php';
 
 $messageSent = false;

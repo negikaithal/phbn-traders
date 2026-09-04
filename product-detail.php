@@ -1,22 +1,43 @@
 <?php
 // product-detail.php - Comprehensive Product Details
-require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/functions.php';
 
 $pdo = getDBConnection();
 $productId = intval($_GET['id'] ?? 0);
+$slug = sanitize($_GET['slug'] ?? '');
 
-$stmt = $pdo->prepare("SELECT p.*, c.name as category_name, c.slug as category_slug 
-                       FROM products p 
-                       LEFT JOIN categories c ON p.category_id = c.id 
-                       WHERE p.id = ?");
-$stmt->execute([$productId]);
-$product = $stmt->fetch();
+if (!empty($slug)) {
+    $stmt = $pdo->prepare("SELECT p.*, c.name as category_name, c.slug as category_slug 
+                           FROM products p 
+                           LEFT JOIN categories c ON p.category_id = c.id 
+                           WHERE p.slug = ?");
+    $stmt->execute([$slug]);
+    $product = $stmt->fetch();
+} else {
+    $stmt = $pdo->prepare("SELECT p.*, c.name as category_name, c.slug as category_slug 
+                           FROM products p 
+                           LEFT JOIN categories c ON p.category_id = c.id 
+                           WHERE p.id = ?");
+    $stmt->execute([$productId]);
+    $product = $stmt->fetch();
+}
 
 if (!$product) {
-    echo "<div class='max-w-7xl mx-auto px-4 py-20 text-center'><h2 class='text-2xl font-bold'>Spice Not Found</h2><a href='products.php' class='btn-spice-primary mt-4 inline-block'>Return to Catalog</a></div>";
+    header("HTTP/1.0 404 Not Found");
+    $pageTitle = "Spice Not Found - PHBN Traders";
+    require_once __DIR__ . '/includes/header.php';
+    echo "<div class='max-w-7xl mx-auto px-4 py-20 text-center'><h2 class='text-2xl font-bold'>Spice Not Found</h2><a href='" . url('products') . "' class='btn-spice-primary mt-4 inline-block'>Return to Catalog</a></div>";
     require_once __DIR__ . '/includes/footer.php';
     exit;
 }
+
+// Set SEO Meta
+$pageTitle = sanitize($product['name']) . " - PHBN Traders";
+$pageDescription = sanitize(substr($product['description'], 0, 160));
+$pageImage = sanitize($product['image']);
+$pageCanonical = url('spice/' . $product['slug']);
+
+require_once __DIR__ . '/includes/header.php';
 
 // Fetch related products
 $relStmt = $pdo->prepare("SELECT * FROM products WHERE category_id = ? AND id != ? LIMIT 3");
@@ -24,14 +45,38 @@ $relStmt->execute([$product['category_id'], $product['id']]);
 $relatedProducts = $relStmt->fetchAll();
 ?>
 
+<!-- Schema.org JSON-LD Structured Data for Google SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "<?= addslashes(sanitize($product['name'])) ?>",
+  "image": ["<?= addslashes(sanitize($product['image'])) ?>"],
+  "description": "<?= addslashes(sanitize($product['description'])) ?>",
+  "sku": "PHBN-<?= $product['id'] ?>",
+  "brand": {
+    "@type": "Brand",
+    "name": "PHBN Traders"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "<?= sanitize($pageCanonical) ?>",
+    "priceCurrency": "INR",
+    "price": "<?= $product['price'] ?>",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+
 <!-- Breadcrumbs -->
 <div class="bg-gray-100 py-3 border-b border-spice-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-xs text-gray-500 flex items-center gap-2">
-        <a href="index.php" class="hover:text-spice-red">Home</a>
+        <a href="<?= url('') ?>" class="hover:text-spice-red">Home</a>
         <i class="fa-solid fa-chevron-right text-[10px]"></i>
-        <a href="products.php" class="hover:text-spice-red">Shop</a>
+        <a href="<?= url('products') ?>" class="hover:text-spice-red">Shop</a>
         <i class="fa-solid fa-chevron-right text-[10px]"></i>
-        <a href="products.php?cat=<?= sanitize($product['category_slug']) ?>" class="hover:text-spice-red"><?= sanitize($product['category_name']) ?></a>
+        <a href="<?= url('category/' . sanitize($product['category_slug'])) ?>" class="hover:text-spice-red"><?= sanitize($product['category_name']) ?></a>
         <i class="fa-solid fa-chevron-right text-[10px]"></i>
         <span class="text-spice-dark font-semibold"><?= sanitize($product['name']) ?></span>
     </div>
@@ -82,7 +127,7 @@ $relatedProducts = $relStmt->fetchAll();
                     <span class="text-xs text-gray-400">Inclusive of all taxes</span>
                 </div>
 
-                <form action="cart-action.php" method="POST" class="space-y-4 pt-4 border-t border-gray-100">
+                <form action="<?= url('cart-action.php') ?>" method="POST" class="space-y-4 pt-4 border-t border-gray-100">
                     <input type="hidden" name="action" value="add">
                     <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 
@@ -108,7 +153,7 @@ $relatedProducts = $relStmt->fetchAll();
                         <button type="submit" class="btn-spice-primary w-full text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                         </button>
-                        <a href="wholesale.php" class="btn-spice-secondary w-full text-center flex items-center justify-center gap-2 text-xs">
+                        <a href="<?= url('wholesale') ?>" class="btn-spice-secondary w-full text-center flex items-center justify-center gap-2 text-xs">
                             <i class="fa-solid fa-truck-ramp-box"></i> Wholesale Rate Quote
                         </a>
                     </div>
@@ -144,11 +189,11 @@ $relatedProducts = $relStmt->fetchAll();
             <div class="spice-card rounded-2xl overflow-hidden p-4 space-y-3">
                 <img src="<?= sanitize($rel['image']) ?>" class="w-full h-40 object-cover rounded-xl">
                 <h4 class="font-bold text-sm text-spice-dark hover:text-spice-red">
-                    <a href="product-detail.php?id=<?= $rel['id'] ?>"><?= sanitize($rel['name']) ?></a>
+                    <a href="<?= url('spice/' . sanitize($rel['slug'])) ?>"><?= sanitize($rel['name']) ?></a>
                 </h4>
                 <div class="flex justify-between items-center text-xs">
                     <span class="font-bold text-spice-red"><?= formatCurrency($rel['price']) ?></span>
-                    <a href="product-detail.php?id=<?= $rel['id'] ?>" class="text-spice-gold font-semibold hover:underline">View</a>
+                    <a href="<?= url('spice/' . sanitize($rel['slug'])) ?>" class="text-spice-gold font-semibold hover:underline">View</a>
                 </div>
             </div>
             <?php endforeach; ?>

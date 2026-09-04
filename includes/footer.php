@@ -8,7 +8,7 @@
                 
                 <!-- Brand Info -->
                 <div class="lg:col-span-2 space-y-4">
-                    <a href="index.php" class="flex items-center gap-3">
+                    <a href="<?= url('') ?>" class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-spice-red to-spice-gold flex items-center justify-center text-white text-xl">
                             <i class="fa-solid fa-pepper-hot"></i>
                         </div>
@@ -29,11 +29,11 @@
                 <div>
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-b border-amber-800/40 pb-2">Categories</h4>
                     <ul class="space-y-2 text-xs text-amber-200/80">
-                        <li><a href="products.php?cat=ground-spices" class="hover:text-amber-400 transition-colors">Ground Spices</a></li>
-                        <li><a href="products.php?cat=whole-spices" class="hover:text-amber-400 transition-colors">Whole Spices</a></li>
-                        <li><a href="products.php?cat=blended-masalas" class="hover:text-amber-400 transition-colors">Blended Masalas</a></li>
-                        <li><a href="products.php?cat=exotic-premium" class="hover:text-amber-400 transition-colors">Exotic & Premium</a></li>
-                        <li><a href="products.php?cat=organic-wellness" class="hover:text-amber-400 transition-colors">Organic & Wellness</a></li>
+                        <li><a href="<?= url('category/ground-spices') ?>" class="hover:text-amber-400 transition-colors">Ground Spices</a></li>
+                        <li><a href="<?= url('category/whole-spices') ?>" class="hover:text-amber-400 transition-colors">Whole Spices</a></li>
+                        <li><a href="<?= url('category/blended-masalas') ?>" class="hover:text-amber-400 transition-colors">Blended Masalas</a></li>
+                        <li><a href="<?= url('category/exotic-premium') ?>" class="hover:text-amber-400 transition-colors">Exotic & Premium</a></li>
+                        <li><a href="<?= url('category/organic-wellness') ?>" class="hover:text-amber-400 transition-colors">Organic & Wellness</a></li>
                     </ul>
                 </div>
 
@@ -41,11 +41,11 @@
                 <div>
                     <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-4 border-b border-amber-800/40 pb-2">Business & Services</h4>
                     <ul class="space-y-2 text-xs text-amber-200/80">
-                        <li><a href="wholesale.php" class="hover:text-amber-400 transition-colors font-bold text-spice-amber">Bulk Wholesale Inquiries</a></li>
-                        <li><a href="recipes.php" class="hover:text-amber-400 transition-colors">Spice Pairing Guide</a></li>
-                        <li><a href="about.php" class="hover:text-amber-400 transition-colors">Sourcing & Purity Standards</a></li>
-                        <li><a href="contact.php" class="hover:text-amber-400 transition-colors">Contact Support</a></li>
-                        <li><a href="admin/index.php" class="hover:text-amber-400 transition-colors">Admin Dashboard</a></li>
+                        <li><a href="<?= url('wholesale') ?>" class="hover:text-amber-400 transition-colors font-bold text-spice-amber">Bulk Wholesale Inquiries</a></li>
+                        <li><a href="<?= url('spice-masterclass') ?>" class="hover:text-amber-400 transition-colors">Spice Pairing Guide</a></li>
+                        <li><a href="<?= url('about-us') ?>" class="hover:text-amber-400 transition-colors">Sourcing & Purity Standards</a></li>
+                        <li><a href="<?= url('contact-us') ?>" class="hover:text-amber-400 transition-colors">Contact Support</a></li>
+                        <li><a href="<?= url('admin/index.php') ?>" class="hover:text-amber-400 transition-colors">Admin Dashboard</a></li>
                     </ul>
                 </div>
 
@@ -77,6 +77,6 @@
     <div id="toast-container"></div>
 
     <!-- Main JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <script src="<?= url('assets/js/main.js') ?>"></script>
 </body>
 </html>

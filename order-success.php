@@ -1,5 +1,6 @@
 <?php
 // order-success.php - Order Confirmation & Receipt Summary
+$pageTitle = "Order Placed Successfully - PHBN Traders";
 require_once __DIR__ . '/includes/header.php';
 
 $pdo = getDBConnection();
@@ -10,7 +11,7 @@ $stmt->execute([$orderId]);
 $order = $stmt->fetch();
 
 if (!$order) {
-    header('Location: index.php');
+    header('Location: ' . url(''));
     exit;
 }
 
@@ -89,7 +90,7 @@ $orderItems = $itemStmt->fetchAll();
             <button onclick="window.print()" class="btn-spice-outline text-xs flex items-center gap-2">
                 <i class="fa-solid fa-print"></i> Print Invoice
             </button>
-            <a href="products.php" class="btn-spice-primary text-xs flex items-center gap-2">
+            <a href="<?= url('products') ?>" class="btn-spice-primary text-xs flex items-center gap-2">
                 <i class="fa-solid fa-cart-shopping"></i> Continue Shopping
             </a>
         </div>

@@ -1,5 +1,7 @@
 <?php
 // index.php - Home Page
+$pageTitle = "PHBN Traders | Pure, Aromatic & Wholesale Standard Spices";
+$pageDescription = "Discover PHBN Traders range of 100% pure single-origin whole spices, cold-ground masalas, and luxury Kashmiri saffron. Sourced direct from spice estates.";
 require_once __DIR__ . '/includes/header.php';
 
 $pdo = getDBConnection();
@@ -27,10 +29,10 @@ $featuredProducts = $featStmt->fetchAll();
                 Elevate your culinary creations with PHBN Traders’ handpicked whole spices, vibrant cold-ground masalas, and luxury Kashmiri saffron. 100% natural, lab-tested, and vacuum-sealed for peak essential oil freshness.
             </p>
             <div class="flex flex-wrap gap-4 pt-4">
-                <a href="products.php" class="btn-spice-primary text-sm flex items-center gap-2 shadow-lg">
+                <a href="<?= url('products') ?>" class="btn-spice-primary text-sm flex items-center gap-2 shadow-lg">
                     <i class="fa-solid fa-cart-shopping"></i> Explore Spice Collection
                 </a>
-                <a href="wholesale.php" class="btn-spice-secondary text-sm flex items-center gap-2 shadow-lg">
+                <a href="<?= url('wholesale') ?>" class="btn-spice-secondary text-sm flex items-center gap-2 shadow-lg">
                     <i class="fa-solid fa-truck-ramp-box"></i> Bulk & Commercial Orders
                 </a>
             </div>
@@ -108,14 +110,14 @@ $featuredProducts = $featStmt->fetchAll();
             <span class="text-xs font-bold text-spice-gold uppercase tracking-wider">Explore By Type</span>
             <h2 class="text-3xl font-extrabold text-spice-dark tracking-tight">Our Spice Categories</h2>
         </div>
-        <a href="products.php" class="text-sm font-bold text-spice-red hover:underline flex items-center gap-1">
+        <a href="<?= url('products') ?>" class="text-sm font-bold text-spice-red hover:underline flex items-center gap-1">
             View All Categories <i class="fa-solid fa-chevron-right text-xs"></i>
         </a>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <?php foreach ($categories as $cat): ?>
-        <a href="products.php?cat=<?= sanitize($cat['slug']) ?>" class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-spice-border h-64 flex flex-col justify-end p-5">
+        <a href="<?= url('category/' . sanitize($cat['slug'])) ?>" class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-spice-border h-64 flex flex-col justify-end p-5">
             <img src="<?= sanitize($cat['image']) ?>" alt="<?= sanitize($cat['name']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             <div class="relative z-10">
@@ -138,7 +140,7 @@ $featuredProducts = $featStmt->fetchAll();
                 <span class="text-xs font-bold text-spice-red uppercase tracking-wider"><i class="fa-solid fa-fire text-amber-500 mr-1"></i> Kitchen Staples</span>
                 <h2 class="text-3xl font-extrabold text-spice-dark tracking-tight">Best Selling Premium Spices</h2>
             </div>
-            <a href="products.php" class="btn-spice-outline text-xs">Browse Complete Pantry</a>
+            <a href="<?= url('products') ?>" class="btn-spice-outline text-xs">Browse Complete Pantry</a>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -171,7 +173,7 @@ $featuredProducts = $featStmt->fetchAll();
                         </div>
 
                         <h3 class="text-lg font-bold text-spice-dark hover:text-spice-red transition-colors line-clamp-1">
-                            <a href="product-detail.php?id=<?= $product['id'] ?>"><?= sanitize($product['name']) ?></a>
+                            <a href="<?= url('spice/' . sanitize($product['slug'])) ?>"><?= sanitize($product['name']) ?></a>
                         </h3>
 
                         <p class="text-xs text-gray-600 line-clamp-2 mt-2 leading-relaxed">
@@ -186,7 +188,7 @@ $featuredProducts = $featStmt->fetchAll();
 
                 <!-- Footer / Price & Add to Cart -->
                 <div class="p-6 pt-0 bg-white">
-                    <form action="cart-action.php" method="POST" class="space-y-3">
+                    <form action="<?= url('cart-action.php') ?>" method="POST" class="space-y-3">
                         <input type="hidden" name="action" value="add">
                         <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 
@@ -205,7 +207,7 @@ $featuredProducts = $featStmt->fetchAll();
                         </div>
 
                         <div class="grid grid-cols-2 gap-2">
-                            <a href="product-detail.php?id=<?= $product['id'] ?>" class="text-center py-2 px-3 border border-gray-300 rounded-lg text-xs font-semibold text-gray-700 hover:bg-gray-50">
+                            <a href="<?= url('spice/' . sanitize($product['slug'])) ?>" class="text-center py-2 px-3 border border-gray-300 rounded-lg text-xs font-semibold text-gray-700 hover:bg-gray-50">
                                 View Details
                             </a>
                             <button type="submit" class="bg-spice-red hover:bg-spice-red-hover text-white text-xs font-bold py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm">
@@ -233,7 +235,7 @@ $featuredProducts = $featStmt->fetchAll();
                 Need bulk 5kg, 25kg, or custom vacuum jute bag packaging? We offer wholesale rates, custom grinding mesh sizes, and certificate of analysis (COA) for commercial buyers.
             </p>
             <div class="flex flex-wrap items-center gap-4 pt-2">
-                <a href="wholesale.php" class="bg-spice-gold hover:bg-amber-600 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg flex items-center gap-2">
+                <a href="<?= url('wholesale') ?>" class="bg-spice-gold hover:bg-amber-600 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg flex items-center gap-2">
                     Request Wholesale Rate List <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
                 <a href="tel:+919876543210" class="border border-amber-500/40 text-amber-200 hover:bg-white/10 text-sm font-semibold px-5 py-3 rounded-xl transition-colors flex items-center gap-2">

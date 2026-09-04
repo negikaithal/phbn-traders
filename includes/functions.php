@@ -7,6 +7,24 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once __DIR__ . '/../config/db.php';
 
+// Base Path & SEO URL Generator
+function getBasePath() {
+    static $base = null;
+    if ($base !== null) return $base;
+    
+    $scriptName = $_SERVER['SCRIPT_NAME'] ?? '';
+    $dir = dirname($scriptName);
+    // Strip trailing /admin if called from inside admin
+    $dir = preg_replace('~/admin$~', '', $dir);
+    $dir = str_replace('\\', '/', $dir);
+    $base = rtrim($dir, '/') . '/';
+    return $base;
+}
+
+function url($path = '') {
+    return getBasePath() . ltrim($path, '/');
+}
+
 // Format currency
 function formatCurrency($amount) {
     return '₹' . number_format($amount, 2);
@@ -56,7 +74,6 @@ function addToCart($productId, $quantity = 1, $weight = '250g') {
         return false;
     }
 
-    // Weight multiplier adjustment for demo if price is per 250g
     $multiplier = 1;
     if ($weight === '100g') $multiplier = 0.45;
     elseif ($weight === '500g') $multiplier = 1.9;
@@ -118,7 +135,7 @@ function isAdminLoggedIn() {
 // Require Admin Login
 function requireAdmin() {
     if (!isAdminLoggedIn()) {
-        header('Location: login.php');
+        header('Location: ' . url('admin/login.php'));
         exit;
     }
 }

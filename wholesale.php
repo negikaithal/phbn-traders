@@ -1,5 +1,7 @@
 <?php
 // wholesale.php - Commercial & Wholesale Trade Inquiries
+$pageTitle = "Wholesale & Bulk Spice Supply - PHBN Traders";
+$pageDescription = "Request bulk spice quotes for hotels, restaurants, caterers, and export buyers. 5kg to 50kg custom packaging & COA reports.";
 require_once __DIR__ . '/includes/header.php';
 
 $success = false;
