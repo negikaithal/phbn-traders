@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: phbn-traders
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
