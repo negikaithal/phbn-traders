@@ -88,12 +88,12 @@ $relatedProducts = $relStmt->fetchAll();
         <!-- Product Image Gallery -->
         <div class="space-y-4">
             <div class="rounded-3xl overflow-hidden border border-spice-border bg-white shadow-sm h-96 sm:h-[480px]">
-                <img id="main-product-img" src="<?= sanitize($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
+                <img id="main-product-img" src="<?= imageUrl($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
             </div>
             
             <div class="grid grid-cols-3 gap-4">
                 <div class="border-2 border-spice-red rounded-xl overflow-hidden h-24 bg-gray-50 cursor-pointer">
-                    <img src="<?= sanitize($product['image']) ?>" class="w-full h-full object-cover">
+                    <img src="<?= imageUrl($product['image']) ?>" class="w-full h-full object-cover">
                 </div>
                 <div class="border border-spice-border rounded-xl overflow-hidden h-24 bg-gray-50 flex items-center justify-center text-xs text-gray-500 font-medium">
                     <i class="fa-solid fa-leaf text-emerald-500 text-lg mr-1"></i> Guaranteed Pure
@@ -187,7 +187,7 @@ $relatedProducts = $relStmt->fetchAll();
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <?php foreach ($relatedProducts as $rel): ?>
             <div class="spice-card rounded-2xl overflow-hidden p-4 space-y-3">
-                <img src="<?= sanitize($rel['image']) ?>" class="w-full h-40 object-cover rounded-xl">
+                <img src="<?= imageUrl($rel['image']) ?>" class="w-full h-40 object-cover rounded-xl">
                 <h4 class="font-bold text-sm text-spice-dark hover:text-spice-red">
                     <a href="<?= url('spice/' . sanitize($rel['slug'])) ?>"><?= sanitize($rel['name']) ?></a>
                 </h4>

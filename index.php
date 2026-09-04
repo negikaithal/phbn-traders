@@ -118,7 +118,7 @@ $featuredProducts = $featStmt->fetchAll();
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <?php foreach ($categories as $cat): ?>
         <a href="<?= url('category/' . sanitize($cat['slug'])) ?>" class="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-spice-border h-64 flex flex-col justify-end p-5">
-            <img src="<?= sanitize($cat['image']) ?>" alt="<?= sanitize($cat['name']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+            <img src="<?= imageUrl($cat['image']) ?>" alt="<?= sanitize($cat['name']) ?>" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
             <div class="relative z-10">
                 <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors"><?= sanitize($cat['name']) ?></h3>
@@ -149,7 +149,7 @@ $featuredProducts = $featStmt->fetchAll();
                 <div>
                     <!-- Image container -->
                     <div class="relative h-56 overflow-hidden bg-gray-100">
-                        <img src="<?= sanitize($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
+                        <img src="<?= imageUrl($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
                         
                         <!-- Heat Badge -->
                         <span class="absolute top-3 left-3 heat-badge <?= sanitize($product['heat_level']) ?>">

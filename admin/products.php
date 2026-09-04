@@ -73,7 +73,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit') {
     <title>Spice Catalog Manager | PHBN Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="<?= url('assets/css/style.css') ?>">
 </head>
 <body class="bg-gray-100 text-spice-dark flex flex-col min-h-screen">
 
@@ -161,8 +161,8 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit') {
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700 uppercase mb-1">Image URL</label>
-                    <input type="text" name="image" value="<?= sanitize($editProduct['image'] ?? '') ?>" placeholder="https://images.unsplash.com/..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-spice-red">
+                    <label class="block font-bold text-gray-700 uppercase mb-1">Image URL / Path</label>
+                    <input type="text" name="image" value="<?= sanitize($editProduct['image'] ?? '') ?>" placeholder="assets/images/ground-spices.svg or https://..." class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 focus:outline-none focus:border-spice-red">
                 </div>
 
                 <div>
@@ -212,7 +212,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'edit') {
                         <?php foreach ($products as $p): ?>
                         <tr>
                             <td class="py-2.5 px-2">
-                                <img src="<?= sanitize($p['image']) ?>" class="w-10 h-10 object-cover rounded-lg border">
+                                <img src="<?= imageUrl($p['image']) ?>" class="w-12 h-12 object-cover rounded-lg border">
                             </td>
                             <td class="py-2.5 px-2 font-bold text-spice-dark">
                                 <?= sanitize($p['name']) ?>

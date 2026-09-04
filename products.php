@@ -149,7 +149,7 @@ $products = $stmt->fetchAll();
                     <div class="spice-card rounded-2xl overflow-hidden flex flex-col justify-between">
                         <div>
                             <div class="relative h-48 overflow-hidden bg-gray-100">
-                                <img src="<?= sanitize($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
+                                <img src="<?= imageUrl($product['image']) ?>" alt="<?= sanitize($product['name']) ?>" class="w-full h-full object-cover">
                                 <span class="absolute top-3 left-3 heat-badge <?= sanitize($product['heat_level']) ?>">
                                     <i class="fa-solid fa-pepper-hot"></i> <?= sanitize($product['heat_level']) ?>
                                 </span>

@@ -25,6 +25,17 @@ function url($path = '') {
     return getBasePath() . ltrim($path, '/');
 }
 
+// Image URL Helper for local assets and external URLs
+function imageUrl($path) {
+    if (empty($path)) {
+        return url('assets/images/ground-spices.svg');
+    }
+    if (strpos($path, 'http://') === 0 || strpos($path, 'https://') === 0) {
+        return $path;
+    }
+    return url($path);
+}
+
 // Format currency
 function formatCurrency($amount) {
     return '₹' . number_format($amount, 2);

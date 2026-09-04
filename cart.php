@@ -65,7 +65,7 @@ $amountLeftForFreeShipping = max(0, $freeShippingThreshold - $cartTotal);
                             <tr>
                                 <td class="p-4">
                                     <div class="flex items-center gap-3">
-                                        <img src="<?= sanitize($item['image']) ?>" class="w-12 h-12 object-cover rounded-xl border border-gray-200 shrink-0">
+                                        <img src="<?= imageUrl($item['image']) ?>" class="w-12 h-12 object-cover rounded-xl border border-gray-200 shrink-0">
                                         <div>
                                             <span class="font-bold text-spice-dark block line-clamp-1">
                                                 <?= sanitize($item['name']) ?>
